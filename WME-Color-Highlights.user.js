@@ -1544,7 +1544,6 @@ async function initialiseHighlights() {
         getId('_cbHighlightNoCity').checked = options[4];
         getId('_cbHighlightOneWay').checked = options[5];
         getId('_cbHighlightCity').checked = options[15];
-        getId('_cbHighlightCityInvert').checked = options[14] ?? false;
         getId('_cbHighlightRoadType').checked = options[16];
         getId('_selectRoadType').selectedIndex = options[17];
         getId('_cbHighlightPlaces').checked = options[7];
@@ -1565,10 +1564,10 @@ async function initialiseHighlights() {
         getId('_cbHighlightRecent').checked = options[11];
         getId('_numRecentDays').value = options[12];
         getId('_cbHighlightEditor').checked = options[13];
-        getId('_cbHighlightEditorInvert').checked = options[18] ?? false;
         getId('_cbHighlightRoutingPref').checked = options[25];
 
         getId('_cbHighlightPermanentHazards').checked = options[30] ?? false;
+        getId('_cbHighlightEditorInvert').checked = options[31] ?? false;
     }
     else {
         getId('_cbHighlightPlaces').checked = true;
@@ -1595,7 +1594,6 @@ async function initialiseHighlights() {
             options[4] = getId('_cbHighlightNoCity').checked;
             options[5] = getId('_cbHighlightOneWay').checked;
             options[7] = getId('_cbHighlightPlaces').checked;
-            options[14] = getId('_cbHighlightCityInvert').checked;
             options[15] = getId('_cbHighlightCity').checked;
             options[16] = getId('_cbHighlightRoadType').checked;
             options[17] = getId('_selectRoadType').selectedIndex;
@@ -1614,11 +1612,13 @@ async function initialiseHighlights() {
             options[11] = getId('_cbHighlightRecent').checked;
             options[12] = getId('_numRecentDays').value;
             options[13] = getId('_cbHighlightEditor').checked;
-            options[18] = getId('_cbHighlightEditorInvert').checked;
             options[25] = getId('_cbHighlightRoutingPref').checked;
 
             // permanent hazards
             options[30] = getId('_cbHighlightPermanentHazards').checked;
+            
+            // editor invert
+            options[31] = getId('_cbHighlightEditorInvert').checked;
 
             localStorage.WMEHighlightScript = JSON.stringify(options);
         }
